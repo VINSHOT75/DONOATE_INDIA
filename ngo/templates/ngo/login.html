@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<style>
+
+</style>
+  {% endblock %}
+
+{% block body %}
+
+<div class= "adjust"style="margin-top: 15px;">
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Login here</h2>
+      </div>
+<div class="container" >
+
+  <form action="#" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">User Name</label>
+      <input type="text" name="username" placeholder="Enter username " class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Enter password" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-success btn-rounded">Submit</button>
+  </form>
+  <div><a href="signup/">Sign up here</a></div>
+  <div><a href="/ngo/password_reset/">Frogot Password</a></div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+

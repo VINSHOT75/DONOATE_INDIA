@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block body %}
+
+
+
+<div class= "adjust"style="margin-top: 25px;">
+  
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+      
+      <div class="section-title">
+        <h2>Add To Our Feed</h2>
+      </div>
+      <div class="container">     
+      <form action="#" method="post"  enctype="multipart/form-data">
+        
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+          <div class="form-group">
+              {{ field.label_tag }}
+                 {% render_field field class="form-control" %}
+                   {% for error in field.errors %}
+                     <span style="color:red">{{ error }}</span>
+                   {% endfor %}
+        {% endfor %}
+            <!-- <input type="submit" value="Register" class="btn btn-block btn-primary"> -->
+            <button type="submit" class="btn btn-lg btn-success" >Upload</button>
+          </div>
+   </form>
+        
+      
+      <!-- {% if obj %} -->
+
+      <!-- <h3>Succesfully uploaded {{img_obj.caption}}</h3> -->
+      <!-- <img src="{{ obj.image.url}}" alt="image" class="img-thumbnail"  > -->
+      <!-- {% endif %} -->
+      <hr>
+    </div>
+  </div>
+  </section>
+
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

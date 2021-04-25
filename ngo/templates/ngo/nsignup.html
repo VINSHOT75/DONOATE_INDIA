@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class= "adjust"style="margin-top: 15px;">
+  <body>
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Signup here</h2>
+        </div>
+    <div class="container">
+
+      <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="first_name" placeholder="Enter first Name" aria-describedby="emailHelp" Required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="last_name" placeholder="Enter last Name" aria-describedby="emailHelp" Required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="Enter user Name" aria-describedby="emailHelp" Required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter Email" aria-describedby="emailHelp" Required>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter password (must be eight characters long)" Required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password1" placeholder="Confirm password" Required>
+        </div>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+        <button type="submit" class="btn btn-success btn-rounded">Submit</button>
+      </form>
+    </div>
+
+      {% for message in messages %}
+        <h4 style="background-color: lightgreen; margin-top: 10px ;margin-left: 40px; width: 800px;">
+          {{message}}
+        </h4>
+          {% endfor %}
+    </div>
+    </section>
+    {% endblock %}

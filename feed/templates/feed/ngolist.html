@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{% block css %}
+<style>
+  
+  .middle{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+</style>
+{% endblock %}
+<div class= "adjust"style="margin-top: 20px;">
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Donate Here</h2>
+        <p>“Love can be a natural endowment, a present, or a gift. If it is not just a donation, it can be a divine talent. Since love is a silver bullet, it can make the unimaginable possible through the power of its inspiration. ("Love as dizzy as a cathedral")”</p>
+        
+      </div>
+  {% for i in ngos %}
+  <div class="container middle ">
+    <div class="card" style="width: 30rem;">
+      <img src="{{i.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <b><h5 class="card-title">{{i.caption}}</h5></b>
+        <p class="card-text">{{i.desc}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"></li>
+        <li class="list-group-item">{{i.name}}</li>
+        <!-- <li class="list-group-item">A third item</li> -->
+      </ul>
+      <div class="card-body">
+        <a href="donateitem/" class="card-link">DONATE</a>
+        <!-- <button type="button" href="donateitem/" class="btn btn-success btn-rounded">Donate</button> -->
+        <!-- <button type="submit" class="btn btn-success btn-rounded">Submit</button> -->
+        <a href="viewdetails/" class="card-link">view details</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

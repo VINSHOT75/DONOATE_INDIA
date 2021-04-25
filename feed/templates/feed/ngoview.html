@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+{% for i in ngos %}
+<div class="adjust">
+
+    <div class="container middle ">
+        <div class="card" style="width: 30rem;">
+            <img src="{{i.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <b><h5 class="card-title">{{i.caption}}</h5></b>
+                <p class="card-text">{{i.desc}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"></li>
+                <li class="list-group-item">{{i.name}}</li>
+                <!-- <li class="list-group-item">A third item</li> -->
+            </ul>
+    <div class="card-body">
+      <a href="donateitem/" class="card-link">DONATE</a>
+      <a href="viewdetails/" class="card-link">view details</a>
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
