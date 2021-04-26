@@ -19,8 +19,8 @@ def donateitem(request):
     return render(request,'feed/donateitem.html')
 
 @login_required(login_url='/ngo/')
-def viewdetails(request):
-    ngos = Image.objects.all()
+def viewdetails(request , myid):
+    ngos = Image.objects.filter(id=myid)
     return render(request,'feed/ngoview.html',{'ngos':ngos})
 
 @login_required(login_url='/ngo/')

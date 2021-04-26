@@ -37,11 +37,12 @@
         <a href="donateitem/" class="card-link">DONATE</a>
         <!-- <button type="button" href="donateitem/" class="btn btn-success btn-rounded">Donate</button> -->
         <!-- <button type="submit" class="btn btn-success btn-rounded">Submit</button> -->
-        <a href="viewdetails/" class="card-link">view details</a>
+        <a id="qv{{i.id}}" href="viewdetails/{{i.id}}" class="card-link">view details</a>
       </div>
     </div>
   </div>
   {% endfor %}
+</div>
 </div>
 
 {% endblock %}

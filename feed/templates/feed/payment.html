@@ -1,9 +1,32 @@
 {% extends 'base.html' %}
-{% block body %}
-<div class= "adjust">
 
-<h1>hath bandh</h1>
-<div class="container">
+{% block css %}
+<style>
+    #pay{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 2px black;
+    }
+</style>
+
+{%endblock%}
+
+{% block body %}
+
+<div class= "adjust"style="margin-top: 20px;">
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>Pay Here</h2>
+          <!-- <p>"”</p> -->
+          
+        </div>
+    </section>
+
+
+<div id="pay" class="container">
     <div id="paypal-button-container"></div>
 
     <!-- Include the PayPal JavaScript SDK -->
