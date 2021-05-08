@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y-7l6!j!q&yuu^lfke_!ianckomwql1==j8)pina@9k&1pta!g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -143,6 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 EMAIL_BACKENDS= 'django.core.mail.backends.smtp.EmailBackends'
 EMAIL_HOST= 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'rishabh.sites@gmail.com'
-EMAIL_HOST_PASSWORD = 'rishabh0809'
+EMAIL_HOST_USER = 'mail'
+EMAIL_HOST_PASSWORD = 'pswd'
 EMAIL_USE_TLS = True
