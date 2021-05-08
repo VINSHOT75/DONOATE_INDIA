@@ -1,7 +1,7 @@
 from image.models import Image
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .form import ImageForm
-from .models import Postimg
+from .models import DonateBlood, DonateClothes, DonateFood, DonateStationary, DonateTime, Postimg
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='../ngo/')
@@ -18,6 +18,7 @@ def donate(request):
 def donateitem(request):
     return render(request,'feed/donateitem.html')
 
+
 @login_required(login_url='/ngo/')
 def viewdetails(request , myid):
     ngos = Image.objects.filter(id=myid)
@@ -29,24 +30,66 @@ def payment(request):
 
 @login_required(login_url='/ngo/')
 def stationary(request):
+    if request.method == "POST":
+        email = request.POST.get("email",'')
+        quantity = request.POST.get("quant",'')
+        type = request.POST.get("type",'')
+        stat = DonateStationary(email = email , quantity = quantity , type = type)
+        stat.save()
+        return redirect('/feed/checkout/')
     return render(request,'feed/donatestationary.html')
 
 @login_required(login_url='/ngo/')
 def food(request):
+    if request.method == "POST":
+        email = request.POST.get("email",'')
+        quantity = request.POST.get("quant",'')
+        type = request.POST.get("type",'')
+        food = DonateFood(email = email , quantity = quantity , type = type)
+        food.save()
+        return redirect('/feed/checkout/')
+
     return render(request,'feed/donatefood.html')
 
 @login_required(login_url='/ngo/')
 def clothes(request):
+    if request.method == "POST":
+        email = request.POST.get("email",'')
+        quantity = request.POST.get("quant",'')
+        type = request.POST.get("type",'')
+        cloth = DonateClothes(email = email , quantity = quantity , type = type)
+        cloth.save()
+        return redirect('/feed/checkout/')
+
     return render(request,'feed/donateclothes.html')
 
 @login_required(login_url='/ngo/')
 def time(request):
+    if request.method == "POST":
+        email = request.POST.get("email",'')
+        date = request.POST.get("quant",'')
+        type = request.POST.get("type",'')
+        time = DonateTime(email = email , date = date , type = type)
+        time.save()
+        return redirect('/feed/checkout/')
+
     return render(request,'feed/donatetime.html')
 
 @login_required(login_url='/ngo/')
 def blood(request):
+    if request.method == "POST":
+        email = request.POST.get("email",'')
+        date = request.POST.get("quant",'')
+        type = request.POST.get("type",'')
+        disease = request.POST.get("disease",'')
+        blood = DonateBlood(email = email , date = date , type = type,disease=disease)
+        blood.save()
+        return redirect('/feed/checkout/')
     return render(request,'feed/donateblood.html')
 
+@login_required(login_url='/ngo/')
+def checkout(request):
+    return render(request,'feed/checkout.html')
 
 
 @login_required(login_url='/ngo/')
@@ -57,9 +100,9 @@ def add_post(request):
                 obj=form.instance
                 obj.user = request.user
                 form.save()
-                return render(request,"feed/addpost.html",{"obj":obj})  
+                return render(request,"feed/addpost.html",{"obj":obj})
         else:
-            form=ImageForm()    
+            form=ImageForm()
         img=Postimg.objects.all()
         return render(request,"feed/addpost.html",{"img":img,"form":form})
 

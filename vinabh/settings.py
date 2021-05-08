@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'image',
     'widget_tweaks',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +88,7 @@ WSGI_APPLICATION = 'vinabh.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3"))    }
 }
 
 
@@ -143,6 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 EMAIL_BACKENDS= 'django.core.mail.backends.smtp.EmailBackends'
 EMAIL_HOST= 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'vinshot75@gmail.com'
-EMAIL_HOST_PASSWORD = 
-EMAIL_USE_TLS = True 
+EMAIL_HOST_USER = 'rishabh.sites@gmail.com'
+EMAIL_HOST_PASSWORD = 'rishabh0809'
+EMAIL_USE_TLS = True

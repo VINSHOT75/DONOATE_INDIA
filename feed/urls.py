@@ -13,4 +13,5 @@ path("feed/donate/donateitem/clothes",views.clothes ,name="clothes"),
 path("feed/donate/donateitem/time",views.time ,name="time"),
 path("feed/donate/donateitem/blood",views.blood ,name="blood"),
 path("feed/addpost/",views.add_post ,name="addpost"),
+path("feed/checkout/",views.checkout ,name="checkout"),
 ]

@@ -5,7 +5,7 @@ from django.contrib import messages
 
 def home(request):
     return render(request,'ngo/home.html')
-    
+
 def logmein(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -38,7 +38,7 @@ def signup(request):
         if not username.isalnum():
             print("dollar mat likh")
             return redirect('signup')
-        
+
         if password != password1:
             print("password doesnt match")
             return redirect('signup')
@@ -48,7 +48,8 @@ def signup(request):
         else:
             user = User.objects.create_user( username = username, first_name = first_name,last_name = last_name , email=email , password = password)
             user.save()
-        
+            return redirect('login')
+
         messages.success(request,"You Signed Up Successfully !! , Now you can log in ..")
 
 

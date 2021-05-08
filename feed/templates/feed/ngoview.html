@@ -1,4 +1,20 @@
 {% extends 'base.html' %}
+
+{% block title %}
+NGO Details
+{% endblock %}
+
+{% block css %}
+<style>
+    #donate_but{
+        margin-top: 60px;
+        margin-left: 140px;
+        font-size: 30px;
+    }
+</style>
+{% endblock %}
+
+
 {% block body %}
 {% for i in ngos %}
 <div class="adjust">
@@ -8,16 +24,25 @@
             <div class="col-md-4">
                 <div class="row">
                     <img src="{{i.image.url}}" width="300px" height="340px">
+                    <a href="/feed/donate/donateitem/" class="card-link" id="donate_but">DONATE</a>
                 </div>
             </div>
             <div class="col-md-8">
                 <h3>{{i.caption}}</h3>
-                
-    
+
+
                 <p>{{i.desc}}</p>
+                <h4><strong>Head Of Organization :</strong>{{i.hog}}</h4>
+                <h4><strong>Year Of Establishment :</strong>{{i.name}}</h4>
+
+                <hr>
+
+                <p><b>Address :</b> {{i.address}}</p><br>
+                <p><b>Mobile NO :</b> {{i.ngo_contact_no}}</p><br>
+                <p><b>License Number :</b> {{i.reg}}</p>
+
             </div>
-            <!-- <button class="btn btn-primary mx-3 my-2">Buy Now </button> -->
-            <!-- <button class="btn btn-primary my-2"><a href="{{ngos.id}}/book/">Book Now</a></button> -->
+
         </div>
     </div>
 {% endfor %}
