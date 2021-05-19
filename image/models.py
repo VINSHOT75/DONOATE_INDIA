@@ -45,7 +45,7 @@ class Image(models.Model):
     city=models.CharField(max_length=100,default="")
     pin=models.IntegerField(default="")
     hog=models.CharField(max_length=100,default="")
-    reg=models.IntegerField(default="")
+    reg=models.CharField(max_length=20, default="")
     hogph=PhoneNumberField()
     ifsc=models.IntegerField(default="")
     accno=models.IntegerField(default="")
